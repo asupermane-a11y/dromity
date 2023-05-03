@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>主页 - 学生宿舍管理系统</title>
+		<link rel="shortcut icon" href="/static/img/head.png" type="image/x-icon">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+		<script src="/static/js/jquery-3.6.0.min.js"></script>
+		<script src="/static/js/showuserinfo.js"></script>
+	</head>
+	<body>
+
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">学生宿舍管理系统</div>
+				<!-- 头部区域（可配合layui 已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right">
+
+					<li class="layui-nav-item"><a href="http://localhost:8080/out">退出</a></li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-this"><a href="/home.view">主页</a></li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">系统管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/usercontroller.view">用户综合管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/stduentinfo.view">学生信息浏览</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">住宿管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/staycontroller.view">入住管理</a></dd>
+								<dd><a href="/outcontroller.view">学生退宿</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">查询管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/gethotelinfo.view">寝室情况查询</a></dd>
+								<dd><a href="/getstinfo.view">卫生情况查询</a></dd>
+								<dd><a href="/laifang.view">来访情况查询</a></dd>
+								<dd><a href="/shebei.view">设备情况查询</a></dd>
+								<dd><a href="/dianfei.view">电费情况查询</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">门卫管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/laifangdengji.view">来访登记</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">寝室管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/shebeicontroller.view">设备管理</a></dd>
+								<dd><a href="/sushepingbi.view">卫生登记</a></dd>
+								<dd><a href="/dianfeicontroller.view">电费管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="/count.view">统计</a></li>
+						<li class="layui-nav-item"><a href="/baobiao.view">报表</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" style="background-color: #F6F6F6;">
+				<!-- 内容主体区域 -->
+				<div style="padding: 20px;padding-top: 10px;">
+
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top: 0px;">
+						<ul class="layui-tab-title">
+							<li class="layui-this">快捷入口</li>
+							<li onclick="professionalinfo()">个人信息</li>
+							<li>BUG反馈</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<div style="width: 500px;height: 120px; ">
+									<div class="layui-card">
+										<div class="layui-card-header">学生管理</div>
+										<div class="layui-card-body">
+											<button type="button" class="layui-btn layui-btn-primary" id="j1" ><i class="layui-icon layui-icon-heart"> 浏览</i></button>
+											<button type="button" class="layui-btn layui-btn-primary" id="j3" ><i class="layui-icon layui-icon-heart"> 修改</i></button>
+										</div>
+									</div>
+								</div>
+
+								<div style="width: 500px;height: 120px; ">
+									<div class="layui-card">
+										<div class="layui-card-header">住宿管理</div>
+										<div class="layui-card-body">
+											<button type="button" class="layui-btn layui-btn-primary" id="j4" ><i class="layui-icon layui-icon-heart"> 入住</i></button>
+											<button type="button" class="layui-btn layui-btn-primary" id="j6" ><i class="layui-icon layui-icon-heart"> 退宿</i></button>
+										</div>
+									</div>
+								</div>
+
+								<div style="width: 500px;height: 120px; ">
+									<div class="layui-card">
+										<div class="layui-card-header">设备管理</div>
+										<div class="layui-card-body">
+											<button type="button" class="layui-btn layui-btn-primary" id="j8" ><i class="layui-icon layui-icon-heart"><a  href="/shebeicontroller.view">报修</a></i></button>
+											<button type="button" class="layui-btn layui-btn-primary" id="j9" ><i class="layui-icon layui-icon-heart"> <a href="/shebei.view">查询</a></i></button>
+
+										</div>
+									</div>
+								</div>
+								
+								<div style="width: 600px;height: 120px; ">
+									<div class="layui-card">
+										<div class="layui-card-header">卫生登记</div>
+										<div class="layui-card-body">
+											<button type="button" class="layui-btn layui-btn-primary" id="j11" ><i class="layui-icon layui-icon-heart"><a href="/sushepingbi.view" style="text-align: center">卫生记录</a></i></button>
+											<button type="button" class="layui-btn layui-btn-primary" id="j12" ><i class="layui-icon layui-icon-heart"><a href="/getstinfo.view">记录查询</a></i></button>
+
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="layui-tab-item">
+								<div class="layui-card">
+									<div class="layui-card-header" style="text-align: center">
+										欢迎使用学生宿舍管理系统
+									</div>
+									<div class="layui-card-body" id="userinfo">
+
+									</div>
+
+								</div>
+							</div>
+							<!-- 内容3 -->
+							<div class="layui-tab-item" style="padding-left:100px ;">
+
+								<fieldset class="layui-elem-field layui-field-title" style="margin-top: ">
+									<legend style="text-align: center"><font></font></legend>
+								</fieldset>
+<!--								<ul style="padding-left:40px ;">-->
+
+<!--									<li>-->
+<!--										<div id="test12"></div>-->
+<!--									</li>-->
+
+								</ul>
+
+								<br /><br /><br />
+								<fieldset class="layui-elem-field layui-field-title" style="margin-top: ">
+
+									<legend ></legend>
+								</fieldset>
+								<br />
+								请描述你的问题：
+								<div style="text-align: center">   <!--style="padding-left: 20px;"-->
+									<br/>
+									<textarea style="width: 600px;height: 300px"  id="buginfo"></textarea>
+                                    <input type="button" onclick="sendbuginfo()" value="提交">
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<script src="/static/layui/layui.js" charset="utf-8"></script>
+		
+		<script>
+			$("#j1").click(function(){
+				window.location.href="/stduentinfo.view";
+			})
+			$("#j2").click(function(){
+				window.location.href="/signinfo.view";
+			})
+			$("#j3").click(function(){
+				window.location.href="/updatestudentinfo.view";
+			})
+			$("#j3").click(function(){
+				window.location.href="/updatestudentinfo.view";
+			})
+			$("#j4").click(function(){
+				window.location.href="/staycontroller.view";
+			})
+			$("#j5").click(function(){
+				window.location.href="/hotelcontroller.view";
+			})
+			
+			$("#j6").click(function(){
+				window.location.href="/outcontroller.view";
+			})
+			$("#j7").click(function(){
+				window.location.href="/zhuxiao.view";
+			})
+			// $("#j8").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+			// $("#j9").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+			// $("#j10").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+			// $("#j11").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+			// $("#j12").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+			// $("#j13").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+			// $("#j14").click(function(){
+			// 	window.location.href="2-3.html";
+			// })
+		</script>
+		
+		<script>
+			layui.use(['rate'], function() {
+				var rate = layui.rate;
+
+
+				rate.render({
+					elem: '#test12',
+					value: 2.5,
+					half: true,
+					theme: '#009688'
+				})
+
+			});
+		</script>
+
+		<script>
+			//JavaScript 代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?d214947968792b839fd669a4decaaffc";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</body>
+</html>

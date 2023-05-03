@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>入住管理 - 学生宿舍管理系统</title>
+		<link rel="shortcut icon" href="/static/img/head.png" type="image/x-icon">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+		<script src="/static/js/sharehotel.js"></script>
+	</head>
+	<body>
+
+
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">学生宿舍管理系统</div>
+				<!-- 头部区域（可配合layui 已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right">
+
+					<li class="layui-nav-item"><a href="http://localhost:8080/out">退出</a></li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item"><a href="/home.view">主页</a></li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">系统管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/usercontroller.view">用户综合管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/stduentinfo.view">学生信息浏览</a></dd>
+
+							</dl>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;">住宿管理</a>
+							<dl class="layui-nav-child">
+								<dd class="layui-this"><a href="/staycontroller.view">入住管理</a></dd>
+								<dd><a href="/outcontroller.view">学生退宿</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">查询管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/gethotelinfo.view">寝室情况查询</a></dd>
+								<dd><a href="/getstinfo.view">卫生情况查询</a></dd>
+								<dd><a href="/laifang.view">来访情况查询</a></dd>
+								<dd><a href="/shebei.view">设备情况查询</a></dd>
+								<dd><a href="/dianfei.view">电费情况查询</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">门卫管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/laifangdengji.view">来访登记</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">寝室管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/shebeicontroller.view">设备管理</a></dd>
+								<dd><a href="/sushepingbi.view">卫生登记</a></dd>
+								<dd><a href="/dianfeicontroller.view">电费管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="/count.view">统计</a></li>
+						<li class="layui-nav-item"><a href="/baobiao.view">报表</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" style="background-color: #F6F6F6;">
+				<!-- 内容主体区域 -->
+				<div style="padding: 20px;padding-top: 10px;">
+
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top: 0px;">
+						<ul class="layui-tab-title">
+							<li class="layui-this">入住登记</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<div style="width: 500px;height: 400px; ">
+									<div class="layui-card">
+										<div class="layui-card-header">办理入住</div>
+										<div class="layui-card-body">
+											<div class="layui-form-item">
+												<label class="layui-form-label">学号</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentid"  placeholder="请输入学号" autocomplete="off"
+														   class="layui-input"  id="studentid">
+												</div>
+											</div>
+
+											<div class="layui-form-item">
+												<label class="layui-form-label">班级</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentid"  placeholder="请输入班级" autocomplete="off"
+														   class="layui-input"  id="classid">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">楼号</label>
+												<div class="layui-input-block">
+												<select id="floor" style="width: 100px"></select>
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">宿舍</label>
+												<div class="layui-input-block">
+													<select id="room" style="width: 100px"></select>
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">性别</label>
+												<div class="layui-input-block">
+													<select class="layui-input" id="sex">
+														<option value="男">男</option>
+														<option value="女">女</option>-
+													</select>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+
+												<div class="layui-form-item">
+													<div class="layui-input-block">
+														<button class="layui-btn" onclick="gethotel()">获取宿舍</button>
+														<button type="button" class="layui-btn layui-btn-primary" onclick="ruzhu()">入住</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									
+								
+								</div>
+								</div>
+
+
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<script src="/static/layui/layui.js" charset="utf-8"></script>
+		<script>
+			//JavaScript 代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?d214947968792b839fd669a4decaaffc";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</body>
+</html>

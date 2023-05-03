@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Model.Dao.StudentDao.StudentDao">
+    <select id="allStudent" resultType="com.Model.Entities.user">
+        select * from user where 1=1
+    <if test="studentid != null">
+            and studentid like #{studentid}
+    </if>
+    <if test="name != null">
+            and name like #{name}
+    </if>
+    <if test="floor!=null">
+        and floor = #{floor}
+    </if>
+    <if test="room!=null">
+        and room =  #{room}
+    </if>
+    <if test="professional!=null">
+        and professional like #{professional}
+    </if>
+      and capacity=1
+
+    </select>
+    <update id="deletfloor">
+       update user set floor=null , room=null,bed=null  where studentid=#{studentid} and name=#{name}
+    </update>
+
+    <delete id="deleteall">
+        delete from user where studentid=#{studentid1} and name=#{name1}
+    </delete>
+
+
+    <update id="updatestudnet">
+        update user
+            <set>
+          <if test="college2!=null">college=#{college2},</if>
+           <if test="system2!=null">mysystem=#{system2},</if>
+          <if test="profession2!=null">professional=#{profession2},</if>
+          <if test="classid2!=null">classid=#{classid2},</if>
+          <if test="email2!=null">email=#{email2},</if>
+            </set>
+        where studentid=#{studentid2}
+    </update>
+</mapper>

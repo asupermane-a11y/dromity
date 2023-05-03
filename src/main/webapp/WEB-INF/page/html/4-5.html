@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>电费情况查询 - 学生宿舍管理系统</title>
+		<link rel="shortcut icon" href="/static/img/head.png" type="image/x-icon">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+		<script src="/static/js/insertPower.js"></script>
+	</head>
+	<body>
+
+		
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">学生宿舍管理系统</div>
+				<!-- 头部区域（可配合layui 已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right">
+
+					<li class="layui-nav-item"><a href="http://localhost:8080/out">退出</a></li>
+				</ul>
+			</div>
+		
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item"><a href="/home.view">主页</a></li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">系统管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/usercontroller.view">用户综合管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/stduentinfo.view">学生信息浏览</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">住宿管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/staycontroller.view">入住管理</a></dd>
+								<dd><a href="/outcontroller.view">学生退宿</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;">查询管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/gethotelinfo.view">寝室情况查询</a></dd>
+								<dd><a href="/getstinfo.view">卫生情况查询</a></dd>
+								<dd><a href="/laifang.view">来访情况查询</a></dd>
+								<dd><a href="/shebei.view">设备情况查询</a></dd>
+								<dd class="layui-this"><a href="/dianfei.view">电费情况查询</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">门卫管理</a>
+							<dl class="layui-nav-child">
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">寝室管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/shebeicontroller.view">设备管理</a></dd>
+								<dd><a href="/sushepingbi.view">卫生登记</a></dd>
+								<dd><a href="/dianfeicontroller.view">电费管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="/count.view">统计</a></li>
+						<li class="layui-nav-item"><a href="/baobiao.view">报表</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" style="background-color: #F6F6F6;">
+				<!-- 内容主体区域 -->
+				<div style="padding: 20px;padding-top: 10px;">
+					<!--就是这里--><div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top: 0px;">
+					<ul class="layui-tab-title">
+						<li class="layui-this">
+							<select id="floor3">
+								<option value="全部">全部</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>楼
+							<input type="text" id="room3" placeholder="请输入宿舍号"/>
+							<select id="shunxu3">
+								<option value="顺序">顺序</option>
+								<option value="逆序">倒序</option>
+							</select>
+							<select id="yue">
+								<option value=""></option>
+								<option value="费用不足">费用不足</option>
+							</select>
+                           <!--输入-->
+							<input class="layui-this" type="button" onclick="selectele()" value="查询">
+						</li>
+					</ul>
+
+
+
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							<div class="layui-form">
+								<table class="layui-table" >
+									<colgroup>
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+										<col width="100">
+
+									</colgroup>
+									<thead id="mythead4">
+
+									</thead>
+									<tbody id="mybody4">
+
+									</tbody>
+								</table>
+
+
+							</div>
+							</tbody>
+							</table>
+
+
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<script src="/static/layui/layui.js" charset="utf-8"></script>
+		<script>
+			//JavaScript 代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?d214947968792b839fd669a4decaaffc";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</body>
+</html>

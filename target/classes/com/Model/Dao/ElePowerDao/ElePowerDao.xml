@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Model.Dao.ElePowerDao.ElePowerDao">
+    <insert id="insertelepower">
+        insert into elepower values (#{id},#{floor},#{room},#{yue},#{addmoney},#{thedate},#{status},#{start_date},#{end_date})
+    </insert>
+    <select id="getyue" resultType="com.Model.Entities.elepower">
+        select * from elepower where floor=#{floor} and room=#{room} order by id desc limit 1
+    </select>
+    <select id="getelepower" resultType="com.Model.Entities.elepower">
+        select * from elepower where 1=1
+        <if test="floor1!=null">
+            and floor=#{floor1}
+        </if>
+       <if test="room1!=null">
+            and room=#{room1}
+        </if>
+        <if test="yue1!=null">
+            and yue &lt; 10
+        </if>
+       <if test="shunxu1!=null">
+            order by id desc
+       </if>
+
+    </select>
+</mapper>

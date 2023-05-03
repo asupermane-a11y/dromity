@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Model.Dao.HotelDao.HotelDao">
+<select id="hotellist" resultType="com.Model.Entities.hotel">
+    select  * from hotel  where 1=1
+   <if test="classid!=null">
+       and classid=#{classid}
+   </if>
+   <if test="room!=null">
+       and room=#{room}
+   </if>
+   <if test="sex!=null">
+       and sex=#{sex}
+   </if>
+</select>
+
+    <select id="getalluser" resultType="com.Model.Entities.user">
+        select * from user where floor=#{floor}  and  room=#{room} order by bed desc limit 1
+    </select>
+    <select id="getoneuser" resultType="com.Model.Entities.user">
+        select * from user where studentid=#{studentid}
+    </select>
+
+    <update id="updateinfo">
+       update  user  set floor=#{floor1} , room=#{room1} ,bed=#{bed1}  where studentid=#{studentid1}
+    </update>
+</mapper>

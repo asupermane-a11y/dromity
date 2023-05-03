@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Model.Dao.UpdateUserinfoDao.UpdateUserinfoDao">
+    <update id="updatepassword">
+        update user
+        <set>
+        <if test="home_adress!= null">
+            home_adress = #{home_adress},
+        </if>
+        <if test="email != null">
+            email = #{email},
+        </if>
+        <if test="phone != null">
+            phone = #{phone},
+        </if>
+        </set>
+            where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        炫酷登录页面星空粒子背景
+    </title>
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+    <!--[if IE]>
+    <script src="/static/js/html5.js">
+    </script>
+    <![endif]-->
+</head>
+<body>
+<div class="container demo-1">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <div class="logo_box" style="display: block" id="login">
+                <h3>
+                    <font class="my-text">学生宿舍管理系统</font>
+                </h3>
+
+                    <div class="input_outer">
+                            <span class="u_user">
+                            </span>
+                        <input name="logname" class="text" style="color: #FFFFFF !important" type="text"
+                               placeholder="请输入邮箱号" autocomplete="off" id="email">
+                    </div>
+                    <div class="input_outer">
+                            <span class="email_uer">
+                            </span>
+                        <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"
+                               value="" type="text" placeholder="请输入验证码" autocomplete="off" id="message">
+                    </div>
+                <div class="input_outer">
+                            <span class="us_uer">
+                            </span>
+                    <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"
+                           value="" type="password" placeholder="新密码" autocomplete="off" id="newpassword">
+                </div>
+                <div class="input_outer">
+                            <span class="us_uer">
+                            </span>
+                    <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"
+                           value="" type="password" placeholder="确认密码" autocomplete="off" id="newpasswordagain">
+                </div>
+
+                <div id="frozen-btn">
+                    <button class="green" onclick="getmessage()">获取验证码</button>
+                    <button class="purple" onclick="updatepassword()">修改密码</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/TweenLite.min.js">
+</script>
+<script src="/static/js/EasePack.min.js">
+</script>
+<script src="/static/js/rAF.js">
+</script>
+<script src="/static/js/demo-1.js">
+</script>
+<script src="/static/js/login.js">
+</script>
+<script src="/static/js/getmessage.js"></script>
+<script src="/static/layui/layui.js"></script>
+<div style="text-align:center;">
+</div>
+</body>
+
+</html>

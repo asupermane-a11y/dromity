@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Model.Dao.itemDao.itemDao">
+   <insert id="insertitem">
+       insert into item values (#{id},#{itemname}, #{floor}, #{place}, #{all_place}, #{describ}, #{personname},#{capacity},#{itemid},#{status},#{phone},#{images})
+   </insert>
+    <select id="getallitems" resultType="com.Model.Entities.item">
+        select * from item where 1=1
+       <if test="floor!=null">
+           and floor=#{floor}
+         </if>
+        <if test="status!=null">
+           and status=#{status}
+</if>
+<if test="itemid!=null">
+           and itemid=#{itemid}
+</if>
+<if test="shunxu!=null">
+           order by id desc
+</if>
+    </select>
+
+    <update id="toupdate">
+        update item set images=#{images} where itemid=#{uuid}
+    </update>
+</mapper>

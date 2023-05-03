@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>学生信息登记 - 学生宿舍管理系统</title>
+		<link rel="shortcut icon" href="/static/img/head.png" type="image/x-icon">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+		<script src="/static/js/insertinfo.js"></script>
+	</head>
+	<body>
+
+		
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">学生宿舍管理系统</div>
+				<!-- 头部区域（可配合layui 已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right">
+
+					<li class="layui-nav-item"><a href="http://localhost:8080/out">退出</a></li>
+				</ul>
+			</div>
+		
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item"><a href="/home.view">主页</a></li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">系统管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/usercontroller.view">用户综合管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;">学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/stduentinfo.view">学生信息浏览</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">住宿管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/staycontroller.view">入住管理</a></dd>
+								<dd><a href="/outcontroller.view">学生退宿</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">查询管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/gethotelinfo.view">寝室情况查询</a></dd>
+								<dd><a href="/getstinfo.view">卫生情况查询</a></dd>
+								<dd><a href="/laifang.view">来访情况查询</a></dd>
+								<dd><a href="/shebei.view">设备情况查询</a></dd>
+								<dd><a href="/dianfei.view">电费情况查询</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">门卫管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/laifangdengji.view">来访登记</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">寝室管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/shebeicontroller.view">设备管理</a></dd>
+								<dd><a href="/sushepingbi.view">卫生登记</a></dd>
+								<dd><a href="/dianfeicontroller.view">电费管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="/count.view">统计</a></li>
+						<li class="layui-nav-item"><a href="/baobiao.view">报表</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" style="background-color: #F6F6F6;">
+				<!-- 内容主体区域 -->
+				<div style="padding: 20px;padding-top: 10px;">
+
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top: 0px;">
+						<ul class="layui-tab-title">
+							
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<div style="width: 500px;height: 500px; ">
+								<div class="layui-card">
+<!--									<div class="layui-card-header">添加学生信息</div>-->
+									<div class="layui-card-body">
+											<div class="layui-form-item">
+												<label class="layui-form-label">学号</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentid"  id="studentid" placeholder="请输入学号" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+											
+											<div class="layui-form-item">
+												<label class="layui-form-label">姓名</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentname"  id="studentname" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+
+											<div class="layui-form-item">
+												<label class="layui-form-label">性别</label>
+												<div class="layui-input-block">
+													<select class="layui-input" name="studentsex" id="studentsex">
+														<option value="1">男</option>
+														<option value="0">女</option>
+													</select>
+												</div>
+											</div>
+
+
+											
+											<div class="layui-form-item">
+												<label class="layui-form-label">学院</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentcollege"  id="studentcollege" placeholder="请输入学院" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">系别</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentsystem" id="studentsystem" placeholder="请输入系" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+
+											<div class="layui-form-item">
+												<label class="layui-form-label">专业</label>
+												<div class="layui-input-block">
+													<input type="text" name="studentprofession" id="studentprofession" placeholder="请输入专业" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+											
+											<div class="layui-form-item">
+												<label class="layui-form-label">班级</label>
+												<div class="layui-input-block">
+													<input type="text" name="classid"  id="classid" placeholder="请输入班级" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">录取方式</label>
+											<div class="layui-input-block">
+												<select class="layui-input" name="admission_method" id="admission_method">
+													<option value="1">全日制统招</option>
+													<option value="2">专升本</option>
+													<option value="3">艺术类</option>
+													<option value="4">体育类</option>
+													<option value="5">自主招生</option>
+												</select>
+											</div>
+										</div>
+											
+
+											<div class="layui-form-item">
+												<label class="layui-form-label">籍贯</label>
+												<div class="layui-input-block">
+													<input type="text" name="native_place" id="native_place"  placeholder="请输入籍贯" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">家庭住址</label>
+												<div class="layui-input-block">
+													<input type="text" name="home_adress"  id="home_adress" placeholder="请输入家庭住址" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+											
+											<div class="layui-form-item">
+												<label class="layui-form-label">联系电话</label>
+												<div class="layui-input-block">
+													<input type="text" name="phone" id="phone" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">邮箱</label>
+											<div class="layui-input-block">
+												<input type="text" name="email"  id="email" placeholder="请输入邮箱号" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">辅导员</label>
+											<div class="layui-input-block">
+												<input type="text" name="counselor"  id="counselor" placeholder="请输入辅导员" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+
+										<div class="layui-form-item">
+											<label class="layui-form-label">身份证号</label>
+											<div class="layui-input-block">
+												<input type="text" name="userid" id="userid" placeholder="请输入身份证号" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+											
+											<div class="layui-form-item">
+												<div class="layui-input-block">
+													<button class="layui-btn"  onclick="insertstudentinfo()">提交</button>  <!--lay-submit lay-filter="formDemo" -->
+													<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+												</div>
+											</div>
+
+									</div>
+								</div>
+								</div>
+
+
+
+							</div>
+							
+							
+							
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<script src="/static/layui/layui.js" charset="utf-8"></script>
+		<script>
+			//JavaScript 代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?d214947968792b839fd669a4decaaffc";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</body>
+</html>

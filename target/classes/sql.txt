@@ -1,0 +1,117 @@
+user表
+
+create table user
+(
+    id           int auto_increment
+        primary key,
+    sex          int          not null,
+    phone        varchar(255) not null,
+    email        varchar(255) not null,
+    capacity     int          not null,
+    home_adress  varchar(255) not null,
+    password     varchar(255) not null,
+    classid      varchar(255) null,
+    floor        int          null,
+    room         int          null,
+    studentid    varchar(255) null,
+    bed          int          null,
+    college      varchar(255) null,
+    mysystem     varchar(255) null,
+    professional varchar(255) null,
+    name         varchar(255) not null,
+    constraint user_email_uindex
+        unique (email),
+    constraint user_id_uindex
+        unique (id),
+    constraint user_studentid_uindex
+        unique (studentid)
+);
+数据：
+1,1,15386945835,2234215028@qq.com,1,江西省吉安市安福县洲湖镇塘边村垅斗17号,liu227993A@,19060141,16,417,1906014118,1,信创与大数据学院,大数据与智能工程系,计算机科学与技术,刘勇
+2,2,15979652135,2815721758@qq.com,2,山西省晋中市榆次区张庆乡工业园区8号路,liu227993A@,,16,,,,,,,吴佳明
+3,2,15107060278,elric70@outlook.com,3,山西省太原市小店区,liu227993A@,19060141,,,,,,,,程惠
+
+
+
+----------------------------------------------------------------------------------------------------------------
+物品报修表item
+create table item
+create table item
+(
+    id         int auto_increment,
+    itemname   varchar(255) not null,
+    floor      int          not null,
+    place      varchar(255) not null,
+    all_place  varchar(255) not null,
+    describ    varchar(255) not null,
+    personname varchar(255) not null,
+    capacity   int          not null,
+    itemid     varchar(255) not null,
+    status     int          not null,
+    phone      varchar(255) not null,
+    images     varchar(255) null,
+    constraint `ite,_id_uindex`
+        unique (id)
+);
+----------------------------------------------------------------------------------------------------------------
+environment
+create table environment
+(
+    id         int auto_increment
+        primary key,
+    floor      varchar(255) not null,
+    room       varchar(255) not null,
+    score      varchar(255) not null,
+    beizhu     varchar(255) not null,
+    start_date varchar(255) not null,
+    end_date   varchar(255) not null,
+    constraint environment_id_uindex
+        unique (id)
+);
+
+----------------------------------------------------------------------------------------------------------------
+elepower
+
+create table elepower
+(
+    id         int auto_increment
+        primary key,
+    floor      varchar(255) not null,
+    room       varchar(255) not null,
+    yue        float        not null,
+    addmoney   float        not null,
+    thedate    date         null,
+    status     int          not null,
+    start_date varchar(255) null,
+    end_date   varchar(255) null,
+    constraint elepower_id_uindex
+        unique (id)
+);
+------------------------------------------------------------------------------------------------------------
+create table callin
+(
+    id            int auto_increment
+        primary key,
+    callfromname  varchar(255) not null,
+    callfromphone varchar(255) not null,
+    relationship  varchar(255) not null,
+    room          varchar(255) not null,
+    floor         varchar(255) not null,
+    callofname    varchar(255) not null,
+    thetime       varchar(255) not null,
+    constraint callin_id_uindex
+        unique (id)
+);
+------------------------------------------------------------------------------------------------------------
+create table hotel
+(
+    id      int auto_increment
+        primary key,
+    classid varchar(255) not null,
+    floor   varchar(255) not null,
+    room    varchar(255) not null,
+    bed     varchar(255) not null,
+    sex     int          not null,
+    constraint hotel_id_uindex
+        unique (id)
+);

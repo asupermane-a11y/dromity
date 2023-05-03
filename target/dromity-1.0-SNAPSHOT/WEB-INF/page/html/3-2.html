@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>宿舍管理 - 学生宿舍管理系统</title>
+		<link rel="shortcut icon" href="/static/img/head.png" type="image/x-icon">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+	</head>
+	<body>
+
+		
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">学生宿舍管理系统</div>
+				<!-- 头部区域（可配合layui 已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right">
+
+					<li class="layui-nav-item"><a href="http://localhost:8080/out">退出</a></li>
+				</ul>
+			</div>
+		
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item"><a href="/home.view">主页</a></li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">系统管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/usercontroller.view">用户综合管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/stduentinfo.view">学生信息浏览</a></dd>
+
+							</dl>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;">住宿管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/staycontroller.view">入住管理</a></dd>
+								<dd class="layui-this"><a href="/hotelcontroller.view">宿舍管理</a></dd>
+								<dd><a href="/outcontroller.view">学生退宿</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">查询管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/gethotelinfo.view">寝室情况查询</a></dd>
+								<dd><a href="/getstinfo.view">卫生情况查询</a></dd>
+								<dd><a href="/laifang.view">来访情况查询</a></dd>
+								<dd><a href="/shebei.view">设备情况查询</a></dd>
+								<dd><a href="/dianfei.view">电费情况查询</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">门卫管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/laifangdengji.view">来访登记</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">寝室管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/shebeicontroller.view">设备管理</a></dd>
+								<dd><a href="/sushepingbi.view">卫生登记</a></dd>
+								<dd><a href="/dianfeicontroller.view">电费管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="/count.view">统计</a></li>
+						<li class="layui-nav-item"><a href="/baobiao.view">报表</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" style="background-color: #F6F6F6;">
+				<!-- 内容主体区域 -->
+				<div style="padding: 20px;padding-top: 10px;">
+
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-top: 0px;">
+						<ul class="layui-tab-title">
+							<li>修改用户信息</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<div style="width: 500px;height: 500px; ">
+								<div class="layui-card">
+									<div class="layui-card-header">用户信息</div>
+									<div class="layui-card-body">
+										<form class="layui-form" action="">
+											<div class="layui-form-item">
+												<label class="layui-form-label">电话</label>
+												<div class="layui-input-block">
+													<input type="password" name="phone1" required lay-verify="required" placeholder="请输入电话" autocomplete="off"
+														   class="layui-input" id="phone1">
+												</div>
+
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">籍贯</label>
+												<div class="layui-input-block">
+													<input type="text" name="native_place" required lay-verify="required" placeholder="请输入籍贯" autocomplete="off"
+														   class="layui-input" id="native_plcae2">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">邮箱</label>
+												<div class="layui-input-block">
+													<input type="text" name="email" required lay-verify="required" placeholder="请输入邮箱" autocomplete="off"
+														   class="layui-input" id="email2">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">家庭住址</label>
+												<div class="layui-input-block">
+													<input type="text" name="home_adress" required lay-verify="required" placeholder="请输入家庭住址" autocomplete="off"
+														   class="layui-input" id="home_adress2">
+												</div>
+											</div>
+											<div class="layui-form-item">
+													<div class="layui-input-block">
+														<button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+														<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+													</div>
+												</div>
+											</form>
+									</div>
+								</div>
+								</div>
+
+
+
+							</div>
+							<div class="layui-tab-item">
+								<div style="width: 500px;height: 500px; ">
+								<div class="layui-card">
+									<div class="layui-card-header">用户信息</div>
+									<div class="layui-card-body">
+										<form class="layui-form" action="">
+											<div class="layui-form-item">
+												<label class="layui-form-label">用户名</label>
+												<div class="layui-input-block">
+													<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" id="username">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">新密码</label>
+												<div class="layui-input-block">
+													<input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+													 class="layui-input">
+												</div>
+										
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">确认密码</label>
+												<div class="layui-input-block">
+													<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										
+											<div class="layui-form-item">
+												<label class="layui-form-label">身份</label>
+												<div class="layui-input-block">
+													<select name="city" lay-verify="required">
+														<option value=""></option>
+														<option value="1">学生</option>
+														<option value="2">宿管</option>
+														<option value="3">辅导员</option>
+										
+													</select>
+												</div>
+											</div>
+											
+											<div class="layui-form-item">
+													<div class="layui-input-block">
+														<button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+														<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+													</div>
+												</div>
+											</form>
+									</div>
+								</div>
+								</div>
+								
+								
+								
+								
+								
+							</div>
+							<div class="layui-tab-item">
+								<div style="width: 500px;height: 500px; ">
+								<div class="layui-card">
+									<div class="layui-card-header">用户信息</div>
+									<div class="layui-card-body">
+										<form class="layui-form" action="">
+											<div class="layui-form-item">
+												<label class="layui-form-label">电话</label>
+												<div class="layui-input-block">
+													<input type="password" name="phone1" required lay-verify="required" placeholder="请输入电话" autocomplete="off"
+														   class="layui-input" id="phone1">
+												</div>
+
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">籍贯</label>
+												<div class="layui-input-block">
+													<input type="text" name="native_place" required lay-verify="required" placeholder="请输入籍贯" autocomplete="off"
+														   class="layui-input" id="native_plcae1">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">邮箱</label>
+												<div class="layui-input-block">
+													<input type="text" name="email" required lay-verify="required" placeholder="请输入邮箱" autocomplete="off"
+														   class="layui-input" id="email1">
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<label class="layui-form-label">家庭住址</label>
+												<div class="layui-input-block">
+													<input type="text" name="home_adress" required lay-verify="required" placeholder="请输入家庭住址" autocomplete="off"
+														   class="layui-input" id="home_adress1">
+												</div>
+											</div>
+											
+											<div class="layui-form-item">
+													<div class="layui-input-block">
+														<button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+														<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+													</div>
+												</div>
+											</form>
+									</div>
+								</div>
+								</div>
+								
+								
+								
+							</div>
+							
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<script src="/static/layui/layui.js" charset="utf-8"></script>
+		<script>
+			//JavaScript 代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?d214947968792b839fd669a4decaaffc";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</body>
+</html>
