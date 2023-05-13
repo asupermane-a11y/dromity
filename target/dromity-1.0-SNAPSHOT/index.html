@@ -17,18 +17,19 @@
     <![endif]-->
 </head>
 <body>
-    <div class="container demo-1">
+    <div class="container demo-1"  >
         <div class="content">
             <div id="large-header" class="large-header">
                 <canvas id="demo-canvas"></canvas>
-                <div class="logo_box" style="display: block" id="login">
+                <div class="logo_box" id="login">
                     <h3>
                         <font class="my-text">学生宿舍管理系统</font>
                     </h3>
                         <div class="input_outer">
                             <span class="u_user">
                             </span>
-                            <input name="logname" class="text" style="color: #FFFFFF !important" type="text"
+                            <input name="logname" class="text" style="color: #FFFFFF !important;border: none;"
+                                                   type="text"
                                    placeholder="请输入账户" autocomplete="off" id="useremail">
                         </div>
                         <div class="input_outer">
@@ -43,6 +44,44 @@
                         <button class="purple" onclick="returntoview()">修改密码</button>
                     </div>
                 </div>
+
+
+                <!--修改密码的界面-->
+                <!--这里--> <div class="logo_box" style="display: none" id="login1">
+                <h3>
+                    <font class="my-text">学生宿舍管理系统</font>
+                </h3>
+
+                <div class="input_outer">
+                            <span class="u_user">
+                            </span>
+                    <input name="logname" class="text" style="color: #FFFFFF !important" type="text"
+                           placeholder="请输入邮箱号" autocomplete="off" id="email">
+                </div>
+                <div class="input_outer">
+                            <span class="email_uer">
+                            </span>
+                    <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"
+                           value="" type="text" placeholder="请输入验证码" autocomplete="off" id="message">
+                </div>
+                <div class="input_outer">
+                            <span class="us_uer">
+                            </span>
+                    <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"
+                           value="" type="password" placeholder="新密码" autocomplete="off" id="newpassword">
+                </div>
+                <div class="input_outer">
+                            <span class="us_uer">
+                            </span>
+                    <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"
+                           value="" type="password" placeholder="确认密码" autocomplete="off" id="newpasswordagain">
+                </div>
+
+                <div id="frozen-btn1">
+                    <button class="green" onclick="getmessage()">获取验证码</button>
+                    <button class="purple" onclick="updatepassword()">修改密码</button>
+                </div>
+            </div>
             </div>
         </div>
     </div>

@@ -132,6 +132,13 @@
 		height: 10vh;
 
 	}
+#frozen-btn1 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 10vh;
+
+}
 
 button {
 	border: 0;
@@ -172,6 +179,10 @@ button:before{
 .purple {
 	background-image: linear-gradient(to right, #6253e1, #852D91);
 	box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.red {
+	background-image: linear-gradient(to right, #FF0000, #852D91);
+	box-shadow: 0 4px 15px 0 rgba(255, 0, 0, 0.75);
 }
 
 .purple:hover:before {

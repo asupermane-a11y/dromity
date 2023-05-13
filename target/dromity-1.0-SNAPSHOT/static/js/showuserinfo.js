@@ -23,7 +23,7 @@ function professionalinfo() {
                         userinfo.bed="未入住"
                }
              document.getElementById("userinfo").innerHTML="学号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+userinfo.studentid+"<br/>"+
-                "姓名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+userinfo.name+"<br/>"+
+                "姓名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;liuyong<br/>"+
                 "性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+userinfo.sex+"<br/>"+
                 "学院：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+userinfo.college+"<br/>"+
                 "系别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+userinfo.mysystem+"<br/>"+

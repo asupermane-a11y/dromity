@@ -312,7 +312,7 @@ window.onload = function() {
 			var canvas = document.getElementById("pie_canvas");
 			var seriesData = [{
 				name: "1号楼",
-				value: (isNaN(result[0])?0:result[0]),
+				value: (result[0]),
 				color: "RGBA(255,0,0,1)"
 			}, {
 				name: "2号楼",

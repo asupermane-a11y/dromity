@@ -145,24 +145,19 @@ function  selectele(){
                     var tabledata="";
                     if (json.length !== 0) {
                         mythead.innerHTML =
-                            "<tr><th style='text-align: center'>序号</th><th style='text-align: center'>楼</th><th style='text-align: center'>宿舍</th><th style='text-align: center;width: 100px'>变动金额</th><th style='text-align: center'>余额</th><th style='text-align: center;width: 600px'>缴费日期</th><th style='text-align: center;width: 200px'>扣费开始日期</th><th style='text-align: center;width: 200px'>扣费截止日期</th</tr>"
+                            "<tr><th style='text-align: center'>序号</th><th style='text-align: center'>楼</th><th style='text-align: center'>宿舍</th><th style='text-align: center;width: 100px'>超出</th><th style='text-align: center'>余额</th><th style='text-align: center;width: 200px'>扣费开始日期</th><th style='text-align: center;width: 200px'>扣费截止日期</th</tr>"
 
                         for (var i = 0; i < json.length; i++) {
                             json[i].start_date= (json[i].start_date!=null)?json[i].start_date:'';
                             json[i].end_date= (json[i].end_date!=null)?json[i].end_date:'';
                             json[i].thedate= (json[i].thedate=null)?'':new Date(json[i].thedate);
-                            if(json[i].status===1){
-                                json[i].addmoney='+ '+json[i].addmoney;
-                            }else if(json[i].status===0){
-                                json[i].addmoney='- '+json[i].addmoney;
-                            }
+
                             tabledata+='<tr>';
                             tabledata+='<td style="text-align: center;font-size: 1px">'+(i+1)+'</td>';
                             tabledata+='<td style="text-align: center;font-size: 1px">'+json[i].floor+'</td>';
                             tabledata+='<td style="text-align: center;font-size: 1px">'+json[i].room+'</td>';
-                            tabledata+='<td style="text-align: center;font-size: 1px;width:150px">'+json[i].addmoney+'</td>';
+                            tabledata+='<td style="text-align: center;font-size: 1px;width:150px">'+json[i].addmoney-20+'</td>';
                             tabledata+='<td style="text-align: center;font-size: 1px;width:200px">'+json[i].yue+'</td>';
-                            tabledata+='<td style="text-align: center;font-size: 1px">'+json[i].thedate+'</td>';
                             tabledata+='<td style="text-align: center;font-size: 1px">'+json[i].start_date+'</td>';
                             tabledata+='<td style="text-align: center;font-size: 1px">'+json[i].end_date+'</td>';
                             tabledata+='</tr>';

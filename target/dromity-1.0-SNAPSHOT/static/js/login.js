@@ -51,7 +51,14 @@ function login() {
 
 
 function returntoview(){
-  window.location.href="http://localhost:8080/updateview";
+  document.getElementById("login").style.display="none";
+  document.getElementById("login1").style.display="block";
+}
+
+
+function oflogin(){
+    document.getElementById("login1").style.display="none";
+    document.getElementById("login").style.display="block";
 }
 
 
